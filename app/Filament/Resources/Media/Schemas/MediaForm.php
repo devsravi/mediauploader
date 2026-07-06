@@ -22,7 +22,7 @@ class MediaForm
                         ->directory('media')
                         ->visibility('public')
                         ->image()
-                        ->maxSize(10240)
+                        ->maxSize(100240)
                         ->acceptedFileTypes(['image/*', 'video/*', 'audio/*', 'application/pdf'])
                         ->imageEditor()
                         ->imageEditorAspectRatioOptions([

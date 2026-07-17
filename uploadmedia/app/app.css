@@ -1,0 +1,255 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+html,
+body {
+  @apply min-h-full bg-gray-50 text-gray-950 dark:bg-gray-950 dark:text-white;
+
+  @media (prefers-color-scheme: dark) {
+    color-scheme: dark;
+  }
+}
+
+button,
+a,
+input {
+  @apply focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-600;
+}
+
+button:disabled {
+  @apply cursor-not-allowed opacity-50;
+}
+
+.app-shell {
+  @apply mx-auto w-full max-w-6xl px-4 py-8 sm:px-6 lg:px-8;
+}
+
+.page-header {
+  @apply mb-6 border-b border-gray-200 pb-5 dark:border-gray-800;
+}
+
+.page-header p {
+  @apply text-sm font-medium text-amber-700 dark:text-amber-400;
+}
+
+.page-header h1 {
+  @apply mt-1 text-2xl font-semibold;
+}
+
+.media-section {
+  @apply overflow-hidden rounded-lg bg-white shadow-sm ring-1 ring-gray-950/10 dark:bg-gray-900 dark:ring-white/15;
+}
+
+.media-section-heading {
+  @apply border-b border-gray-200 px-5 py-4 dark:border-gray-800;
+}
+
+.media-section-heading h2 {
+  @apply text-base font-semibold;
+}
+
+.media-section-heading p,
+.media-helper {
+  @apply mt-1 text-sm text-gray-500 dark:text-gray-400;
+}
+
+.media-field {
+  @apply px-5 py-5;
+}
+
+.media-field > label {
+  @apply mb-2 block text-sm font-medium;
+}
+
+.media-field > label span,
+.media-error {
+  @apply text-red-600 dark:text-red-400;
+}
+
+.media-success {
+  @apply text-emerald-700 dark:text-emerald-400;
+}
+
+.media-status {
+  @apply mt-2 min-h-5 text-sm;
+}
+
+.filepond--root {
+  @apply mb-0 overflow-hidden rounded-lg bg-white font-sans shadow-sm ring-1 ring-gray-950/10 dark:bg-white/5 dark:ring-white/20;
+}
+
+.filepond--panel-root {
+  background-color: transparent;
+}
+
+.filepond--drop-label {
+  min-height: 5.5rem;
+}
+
+.filepond--drop-label label {
+  @apply text-sm text-gray-600 dark:text-gray-400;
+}
+
+.filepond--label-action {
+  @apply font-medium text-amber-700 no-underline transition hover:text-amber-600 dark:text-amber-400;
+}
+
+.uploaded-media-grid {
+  @apply grid grid-cols-1 gap-4 border-t border-gray-200 p-5 sm:grid-cols-2 lg:grid-cols-3 dark:border-gray-800;
+}
+
+.uploaded-media {
+  @apply relative overflow-hidden rounded-lg bg-white ring-1 ring-gray-950/10 dark:bg-gray-900 dark:ring-white/15;
+}
+
+.uploaded-media-preview {
+  @apply flex aspect-video items-center justify-center overflow-hidden bg-gray-100 dark:bg-gray-800;
+}
+
+.uploaded-media-preview img,
+.uploaded-media-preview video {
+  @apply h-full w-full object-contain;
+}
+
+.uploaded-media-preview audio {
+  @apply w-[90%];
+}
+
+.media-file-preview {
+  @apply flex max-w-full flex-col items-center gap-2 p-4 text-sm text-gray-600 dark:text-gray-300;
+}
+
+.media-file-preview svg {
+  @apply size-10;
+}
+
+.media-file-preview span {
+  @apply max-w-full truncate;
+}
+
+.uploaded-media-info {
+  @apply flex min-w-0 flex-col px-3 py-3 pr-28;
+}
+
+.uploaded-media-info strong {
+  @apply truncate text-sm font-medium;
+}
+
+.uploaded-media-info span {
+  @apply truncate text-xs text-gray-500 dark:text-gray-400;
+}
+
+.uploaded-media-actions {
+  @apply absolute bottom-3 right-3 flex items-center gap-1;
+}
+
+.uploaded-media-actions button,
+.uploaded-media-actions a {
+  @apply flex size-8 items-center justify-center rounded-md text-gray-500 transition hover:bg-gray-100 hover:text-gray-950 dark:hover:bg-gray-800 dark:hover:text-white;
+}
+
+.uploaded-media-actions svg {
+  @apply size-4;
+}
+
+.media-editor {
+  @apply fixed inset-0 isolate z-50 h-[100dvh] w-screen p-2 sm:p-10 md:p-20;
+}
+
+.media-editor-overlay {
+  @apply fixed inset-0 h-full w-full bg-gray-950/50 dark:bg-gray-950/75;
+}
+
+.media-editor-window {
+  @apply isolate mx-auto flex h-full w-full flex-col overflow-hidden rounded-xl bg-white ring-1 ring-gray-900/10 lg:flex-row dark:bg-gray-800 dark:ring-gray-50/10;
+}
+
+.media-editor-image-container {
+  @apply m-4 min-h-48 min-w-0 flex-1 overflow-hidden;
+}
+
+.media-editor-image-container img {
+  display: block;
+  max-width: 100%;
+}
+
+.media-editor-panel {
+  @apply flex h-auto w-full flex-none flex-col overflow-y-auto bg-gray-50 lg:h-full lg:max-w-xs lg:flex-1 dark:bg-gray-900/30;
+}
+
+.media-editor-main {
+  @apply flex-1 space-y-6 overflow-auto p-4;
+}
+
+.crop-fields {
+  @apply grid gap-3;
+}
+
+.crop-fields label {
+  @apply grid grid-cols-[4.5rem_1fr_2.25rem] items-center overflow-hidden rounded-md bg-white text-xs shadow-sm ring-1 ring-gray-950/10 dark:bg-gray-800 dark:ring-white/15;
+}
+
+.crop-fields label > span {
+  @apply px-3 font-medium;
+}
+
+.crop-fields input {
+  @apply min-w-0 border-x border-gray-200 bg-transparent px-2 py-2 text-sm dark:border-gray-700;
+}
+
+.crop-fields small {
+  @apply px-2 text-center text-gray-500;
+}
+
+.editor-tool-groups,
+.aspect-ratios {
+  @apply grid gap-3;
+}
+
+.aspect-ratios > span {
+  @apply text-xs text-gray-950 dark:text-white;
+}
+
+.editor-button-group {
+  @apply flex w-full overflow-hidden rounded-md shadow-sm ring-1 ring-gray-950/10 dark:ring-white/15;
+}
+
+.editor-button-group button {
+  @apply flex min-h-9 flex-1 items-center justify-center border-r border-gray-200 bg-white px-2 text-xs font-medium last:border-r-0 hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700;
+}
+
+.editor-button-group button.active {
+  @apply bg-gray-100 ring-1 ring-inset ring-amber-500 dark:bg-gray-700;
+}
+
+.editor-button-group svg {
+  @apply size-4;
+}
+
+.editor-error {
+  @apply text-sm text-red-600 dark:text-red-400;
+}
+
+.media-editor-footer {
+  @apply flex items-center gap-3 border-t border-gray-200 px-4 py-3 dark:border-gray-700;
+}
+
+.media-editor-footer button {
+  @apply rounded-md bg-white px-3 py-2 text-sm font-semibold shadow-sm ring-1 ring-gray-950/10 hover:bg-gray-50 dark:bg-gray-800 dark:ring-white/15 dark:hover:bg-gray-700;
+}
+
+.media-editor-footer .danger {
+  @apply ml-auto bg-red-600 text-white ring-red-600 hover:bg-red-500 dark:bg-red-600;
+}
+
+.media-editor-footer .success {
+  @apply bg-emerald-600 text-white ring-emerald-600 hover:bg-emerald-500 dark:bg-emerald-600;
+}
+
+.cropper-drag-box.cropper-crop.cropper-modal {
+  @apply bg-gray-100/50 opacity-100 dark:bg-gray-900/80;
+}

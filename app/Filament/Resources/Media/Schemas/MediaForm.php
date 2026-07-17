@@ -21,6 +21,7 @@ class MediaForm
                         ->disk('public')
                         ->directory('media')
                         ->visibility('public')
+                        ->multiple()
                         ->image()
                         ->maxSize(100240)
                         ->acceptedFileTypes(['image/*', 'video/*', 'audio/*', 'application/pdf'])
